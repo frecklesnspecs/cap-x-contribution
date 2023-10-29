@@ -1,0 +1,15 @@
+<h1>CapX Bugs Index</h1>
+<p>Did you find a bug? Register new bugs here:</p>
+<a href="{% url 'bug:new' %}"><b>Submit New Bug</b></a><br>
+<h2>List of Bugs:</h2>
+{% if bug_list %}
+    <ul>
+    {% for bug in bug_list %}
+        <li><a href="{% url 'bug:info' bug.id %}">{{ bug.description }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No bugs are available.</p>
+{% endif %}
+
+

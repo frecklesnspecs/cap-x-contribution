@@ -1,0 +1,17 @@
+
+<form action="{% url 'bug:save' %}" method="post">
+{% csrf_token %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<h1>Register a Bug</h1>
+<label for="description">Bug Description</label>
+<input type="text" name="description" id="description" value=""><br>
+    <label for="BUG_TYPE">Bug Type</label>
+<select name="BUG_TYPE" id="BUG_TYPE">
+    {% for bug_type in bug_types %}
+    <option value="{{bug_type.0}}">{{bug_type.1}}</option>
+    {% endfor %}
+
+</select><br>
+<input type="submit" value="Submit">
+</form>
+
