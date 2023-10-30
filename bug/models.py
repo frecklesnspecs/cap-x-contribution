@@ -31,4 +31,5 @@ class Bug(models.Model):
         return self.description
 
     def was_reported_recently(self):
-        return self.report_date >= timezone.now() - datetime.timedelta(days=1)
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.report_date <= now
